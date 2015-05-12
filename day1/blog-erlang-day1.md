@@ -55,6 +55,7 @@ product_test() ->
 	?assertEqual(3, product(3, 1)),
 	?assertEqual(5, product(3, 2)).
 ```
+This code can be found as a gist on github [here](https://gist.github.com/sleepyfox/3a0f1d6687a52695613f).
 
 Compile the tests using:
 
@@ -121,14 +122,14 @@ The following is (of course) cheating:
 ```
 I also assumed that regex was cheating too.
 
-This proved to be a little more difficult than at first, as the definition of a word boundary spans more than one character, in other words it is a state transition. The complete code is [here](). I started by using a multiple-arity function with pattern matching but eventually refactored to a more Scheme-like helper function that deals with actually counting the words using recursion and state-transition. A FSM-implementation is probably the outcome of following this path to its eventual conclusion.
+This proved to be a little more difficult than at first, as the definition of a word boundary spans more than one character, in other words it is a state transition. The complete code is [here](https://github.com/sleepyfox/7L7W-Erlang/tree/master/day1). I started by using a multiple-arity function with pattern matching but eventually refactored to a more Scheme-like helper function that deals with actually counting the words using recursion and state-transition. A FSM-implementation is probably the outcome of following this path to its eventual conclusion.
 
 ### Write a function that uses recursion to count to ten
 This proved a difficult choice: what does 'count to' mean here? I chose to interpret this as 'Prints the numbers to the screen', which seems reasonable, but makes TDD rather pointless. Instead I used a REPL-based approach, and had I needed a helper function maybe would have changed the approach. I could have written the function to populate a list with strings that would have been written to the screen, but this seemed like overkill. See the notes below on mocking io:format.
 
-Rather like the previous challenge, multiple-arity functions and pattern-matching made this somewhat simpler than it would have been in other languages. Code is [here]().
+Rather like the previous challenge, multiple-arity functions and pattern-matching made this somewhat simpler than it would have been in other languages. Code is [here](https://github.com/sleepyfox/7L7W-Erlang/tree/master/day1).
 
 ### Write an error handler
 Write a function that uses matching to selectively print “success” or “error: message” given input of the form {error, Message} or success.
 
-I'm assuming here that error and success here are atoms. This was a very simple exercise! The code, even with tests, turned out very small and compact, again due to multiple-arity functions and pattern-matching, which seems to be the message for day one. The only issue came again around testing output to the console, which in this case I would have liked to mock the io:format() call, but this turns out to be non-trivial - see StackOverflow response [here](https://stackoverflow.com/questions/4334420/eunit-and-ioformat). Instead I settled on computing an output string, and then testing the value of this output, as well as writing it to the screen. Code [here]().
+I'm assuming here that error and success here are atoms. This was a very simple exercise! The code, even with tests, turned out very small and compact, again due to multiple-arity functions and pattern-matching, which seems to be the message for day one. The only issue came again around testing output to the console, which in this case I would have liked to mock the io:format() call, but this turns out to be non-trivial - see StackOverflow response [here](https://stackoverflow.com/questions/4334420/eunit-and-ioformat). Instead I settled on computing an output string, and then testing the value of this output, as well as writing it to the screen. Code [here](https://github.com/sleepyfox/7L7W-Erlang/tree/master/day1).
