@@ -29,10 +29,12 @@ lookup(List, Word) ->
     element(2, hd(lists:filter(fun({X,_}) -> X == Word end, List))).
 ```
 
-As it happens there is a function in the lists library that looks up keys from tuple-lists (obviously this is a very common thing) called 'keyfind'
+As it happens there is a function in the lists library that looks up keys from tuple-lists (obviously this is a very common thing) called 'keyfind':
 
 ```erlang
-
+lookup([], _) -> false;
+lookup(List, Word) ->
+    element(2, lists:keyfind(Word, 1, List)).
 ```
 
 ### Consider a shopping list that looks like: [{item quantity price}, ...] - Write a list comprehension that builds a list of items of the form [{item total_price}, ...] where total_price is quantity times price
