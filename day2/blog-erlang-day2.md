@@ -20,7 +20,8 @@ Remember:
 Pattern matching is like a case statement, where if a thing matches an expression a clause is evaluated. A guard very similar, but instead of matching a value to an expression, a predicate is evaluated and the clause evaluated only if the predicate is true.
 
 ## Exercises
-### Consider a list of keyword-value tuples, such as [{erlang, "a functional language"}, {ruby, "an OO language"}] - write a function that accepts the list and a keyword and returns the associated value for the keyword
+### Lookup in tuple-list by key
+Consider a list of keyword-value tuples, such as [{erlang, "a functional language"}, {ruby, "an OO language"}] - write a function that accepts the list and a keyword and returns the associated value for the keyword
 
 This seems simple enough:
 ```erlang
@@ -37,7 +38,19 @@ lookup(List, Word) ->
     element(2, lists:keyfind(Word, 1, List)).
 ```
 
-### Consider a shopping list that looks like: [{item quantity price}, ...] - Write a list comprehension that builds a list of items of the form [{item total_price}, ...] where total_price is quantity times price
+### Shopping list
+Consider a shopping list that looks like: [{item, quantity, price}, ...] - Write a list comprehension that builds a list of items of the form [{item, total_price}, ...] where total_price is quantity times price.
+
+Again, this seemed a pretty simple solution:
+```erlang
+total([]) -> [];
+total(List) -> [ {Item, Quantity * Price} || {Item, Quantity, Price} <- List].
+```
 
 ## Bonus problem
-### Write a program that reads a tic-tac-toe board presented as a list or a tuple of size nine. Return the winner ( x or o ) if a winner has been determined, cat if there are no more possible moves, or no_winner if no player has won yet
+### Write a program that reads a tic-tac-toe board 
+The board is presented as a list or a tuple of size nine. Return the winner ( 'x' or 'o' ) if a winner has been determined, 'cat' if there are no more possible moves, or 'no_winner' if no player has won yet.
+
+From (much) past experience, this is a longer peice of work. 
+
+
