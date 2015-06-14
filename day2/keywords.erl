@@ -3,7 +3,7 @@
 
 lookup([], _) -> false;
 lookup(List, Word) ->
-    element(2, hd(lists:filter(fun({X,_}) -> X == Word end, List))).
+    element(2, lists:keyfind(Word, 1, List)).
 
 empty_list_returns_null_test() ->
     ?assertEqual(false, lookup([], word)).

@@ -24,6 +24,14 @@ Pattern matching is like a case statement, where if a thing matches an expressio
 
 This seems simple enough:
 ```erlang
+lookup([], _) -> false;
+lookup(List, Word) ->
+    element(2, hd(lists:filter(fun({X,_}) -> X == Word end, List))).
+```
+
+As it happens there is a function in the lists library that looks up keys from tuple-lists (obviously this is a very common thing) called 'keyfind'
+
+```erlang
 
 ```
 
