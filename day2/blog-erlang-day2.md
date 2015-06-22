@@ -51,6 +51,7 @@ total(List) -> [ {Item, Quantity * Price} || {Item, Quantity, Price} <- List].
 ### Write a program that reads a tic-tac-toe board 
 The board is presented as a list or a tuple of size nine. Return the winner ( 'x' or 'o' ) if a winner has been determined, 'cat' if there are no more possible moves, or 'no_winner' if no player has won yet.
 
-From (much) past experience, this is a longer peice of work. 
+From (much) past experience, this is a longer peice of work.
+The TDD versions of the above with tests can be found on Github [here](https://github.com/sleepyfox/7L7W-Erlang/tree/master/day2). 
 
 
